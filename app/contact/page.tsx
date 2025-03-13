@@ -1,9 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-// The original contact form code is preserved below but commented out
-/*
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -75,9 +72,7 @@ export default function ContactPage() {
 						type="text"
 						required
 						value={formState.name}
-						onChange={(e) =>
-							setFormState((prev) => ({ ...prev, name: e.target.value }))
-						}
+						onChange={(e) => setFormState((prev) => ({ ...prev, name: e.target.value }))}
 						className="w-full px-4 py-2 bg-dracula-background border-2 border-dracula-purple rounded-md focus:outline-none focus:ring-2 focus:ring-dracula-purple text-dracula-foreground placeholder-dracula-comment"
 						placeholder="Your name"
 					/>
@@ -92,28 +87,21 @@ export default function ContactPage() {
 						type="email"
 						required
 						value={formState.email}
-						onChange={(e) =>
-							setFormState((prev) => ({ ...prev, email: e.target.value }))
-						}
+						onChange={(e) => setFormState((prev) => ({ ...prev, email: e.target.value }))}
 						className="w-full px-4 py-2 bg-dracula-background border-2 border-dracula-purple rounded-md focus:outline-none focus:ring-2 focus:ring-dracula-purple text-dracula-foreground placeholder-dracula-comment"
 						placeholder="your.email@example.com"
 					/>
 				</div>
 
 				<div className="space-y-2">
-					<label
-						htmlFor="message"
-						className="block font-pixel text-dracula-foreground"
-					>
+					<label htmlFor="message" className="block font-pixel text-dracula-foreground">
 						Message
 					</label>
 					<textarea
 						id="message"
 						required
 						value={formState.message}
-						onChange={(e) =>
-							setFormState((prev) => ({ ...prev, message: e.target.value }))
-						}
+						onChange={(e) => setFormState((prev) => ({ ...prev, message: e.target.value }))}
 						rows={5}
 						className="w-full px-4 py-2 bg-dracula-background border-2 border-dracula-purple rounded-md focus:outline-none focus:ring-2 focus:ring-dracula-purple text-dracula-foreground placeholder-dracula-comment resize-none"
 						placeholder="Your message here..."
@@ -164,30 +152,6 @@ export default function ContactPage() {
 					</p>
 				</motion.div>
 			)}
-		</motion.div>
-	);
-}
-*/
-
-// Temporary Contact Page Blurb
-export default function ContactPage() {
-	return (
-		<motion.div
-			className="space-y-6 max-w-2xl mx-auto px-4"
-			initial={{ opacity: 0, y: 20 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.5 }}
-		>
-			<div className="text-left">
-				<h1 className="text-3xl font-pixel text-dracula-pink mb-4">
-					Contact Me
-				</h1>
-				<p className="text-dracula-foreground">
-					Heads up! The contact form is on its way, but hey, no worries! You can still reach me the old-fashioned way! Shoot me an email at <a href="mailto:contact@thinkbigg.dev" className="underline text-dracula-purple">contact@thinkbigg.dev</a>, and I'll get back to you within 48 hours.
-					<br/>
-					Looking forward to hearing from you!
-				</p>
-			</div>
 		</motion.div>
 	);
 }
