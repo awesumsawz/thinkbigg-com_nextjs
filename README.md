@@ -16,7 +16,7 @@ A modern, full-stack web application built with Next.js 15, React 19, and TypeSc
 
 Before you begin, ensure you have the following installed:
 - Node.js 20.x or later
-- Bun (recommended) or npm
+- npm
 - Docker (for containerized deployment)
 
 ## Getting Started
@@ -29,10 +29,6 @@ cd <project-directory>
 
 2. Install dependencies:
 ```bash
-# Using Bun (recommended)
-bun install
-
-# Using npm
 npm install
 ```
 
@@ -46,10 +42,6 @@ Edit `.env.local` and update the following variables:
 
 4. Start the development server:
 ```bash
-# Using Bun
-bun dev
-
-# Using npm
 npm run dev
 ```
 
@@ -60,11 +52,6 @@ The application will be available at `http://localhost:3000`.
 ### Local Build
 
 ```bash
-# Using Bun
-bun run build
-bun start
-
-# Using npm
 npm run build
 npm start
 ```
@@ -99,15 +86,7 @@ docker push <your-account-id>.dkr.ecr.us-east-2.amazonaws.com/thinkbigg-nextjs:l
 To enable the contact form functionality:
 
 1. Ensure you've copied `.env.local.example` to `.env.local`
-2. Update the email configuration in `.env.local` with your email server details:
-   ```env
-   EMAIL_HOST=smtp.gmail.com  # or your SMTP server
-   EMAIL_PORT=465            # 465 for secure, 587 for TLS
-   EMAIL_SECURE=true        # true for 465, false for 587
-   EMAIL_USER=your-email@example.com
-   EMAIL_PASS=your-app-specific-password
-   DEFAULT_FROM="Your App Name <noreply@yourapp.com>"
-   ```
+2. Update the email configuration in `.env.local` with your email server details
 3. If using Gmail, follow the Gmail Setup instructions in the Email Configuration section below
 4. The contact form will be automatically enabled once the environment variables are set
 
@@ -155,19 +134,7 @@ The application uses Nodemailer for sending emails, with a secure test endpoint 
 
 ### Environment Variables
 
-Required variables in `.env.local`:
-```env
-# Email Server Configuration
-EMAIL_HOST=smtp.gmail.com  # or your SMTP server
-EMAIL_PORT=465            # 465 for secure, 587 for TLS
-EMAIL_SECURE=true        # true for 465, false for 587
-EMAIL_USER=your-email@example.com
-EMAIL_PASS=your-app-specific-password
-DEFAULT_FROM="Your App Name <noreply@yourapp.com>"
-
-# Test Endpoint Security
-TEST_EMAIL_API_KEY=your-secure-api-key  # Required for test endpoint
-```
+Required variables in `.env.local`
 
 ### Gmail Setup
 If using Gmail (recommended for development):
@@ -177,29 +144,6 @@ If using Gmail (recommended for development):
    - Under "2-Step Verification", click on "App passwords"
    - Select "Mail" and your device
    - Use the generated 16-character password as `EMAIL_PASS`
-
-### Test Endpoint
-
-A secure endpoint is available for verifying email functionality:
-
-- **URL**: `/api/test-email`
-- **Method**: GET
-- **Headers Required**: 
-  ```
-  x-api-key: your-test-email-api-key
-  ```
-- **Security Features**:
-  - Development environment only
-  - API key authentication
-  - Rate limited (1 request/minute)
-  - Sends only to configured `EMAIL_USER`
-  - No sensitive data in test emails
-
-Example test request:
-```bash
-curl http://localhost:3000/api/test-email \
-  -H "x-api-key: your-test-email-api-key"
-```
 
 ### Implementation Details
 
