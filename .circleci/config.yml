@@ -18,7 +18,7 @@ jobs:
           key: npm-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Lint the code
-          command: npm run lint
+          command: npx eslint .
       - run:
           name: Build the project
           command: npm run build
